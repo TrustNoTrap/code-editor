@@ -1,11 +1,23 @@
+@media (prefers-color-scheme: dark) {
+    
+}
+
+body {
+    margin: 0px;
+}
+
 .container {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: var(--vscode-editor-background);
 }
 
 .rows {
     display: flex;
     flex-direction: row;
+    flex-grow: 1;
 }
 
 .rows > * { /* Apply this on all children elements */
@@ -15,4 +27,13 @@
 #editor-nav {
     max-width: 30%;
     min-width: 4%;
+}
+
+#code-editor {
+
+}
+
+#footer {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
