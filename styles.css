@@ -74,6 +74,7 @@ body {
 #editor-nav li {
     /* padding: 5px; */
     align-items: center;
+    align-content: center;
     color: darkgray;
     height: 48px;
 }
