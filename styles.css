@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.rows {
+    display: flex;
+    flex-direction: row;
+}
+
+.rows > * { /* Apply this on all children elements */
+    padding-right: 5px;
+}
+
+#editor-nav {
+    max-width: 30%;
+    min-width: 4%;
+}
