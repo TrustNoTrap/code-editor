@@ -1,5 +1,26 @@
 require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs' } });
 
+const eventHandlers = [
+    {
+        parent: 'top-nav',
+        listeners: [
+
+        ],
+    },
+    {
+        parentId: 'editor-nav',
+        listeners: [
+
+        ],
+    },
+    {
+        parentId: 'code-editor',
+        listeners: [
+
+        ],
+    }
+];
+
 require(['vs/editor/editor.main'], function () {
     const container = document.getElementsByClassName('container')[0];
     const topNav = document.getElementById('top-nav');
@@ -10,7 +31,15 @@ require(['vs/editor/editor.main'], function () {
         language: 'javascript',
         // theme: 'vs-dark',
     });
-    document.body.style = 'background-color: var(--vscode-editor-background);';
+    // document.body.style = 'background-color: var(--vscode-editor-background);';
+    applyStyles(document.body, {
+        backgroundColor: '#151515',
+        color: 'white',
+        fontFamily: '"Segoe WPC", "Segoe UI", sans-serif',
+    });
+    applyStyles(codeEditor, {
+        borderColor: '#111111',
+    });
 
     // editor.setValue('test')
             monaco.editor.setTheme('vs-dark');
@@ -28,3 +57,19 @@ require(['vs/editor/editor.main'], function () {
         console.log(monaco.editor.getEditors())
     })
 });
+
+
+
+const applyStyles = (element, styles) => {
+    for (const key in styles) {
+        element.style[key] = styles[key];
+    }
+}
+
+class EventHandler {
+    constructor({ type, event, handler }) {
+        this.type = type;
+        this.event = event;
+        this.handler = handler;
+    }
+}
